@@ -3,6 +3,7 @@ import Password from '../models/Password.js';
 
 const router = express.Router();
 
+
 // Add new password
 router.post('/', async (req, res) => {
   try {
