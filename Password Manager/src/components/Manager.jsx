@@ -61,7 +61,7 @@ const Manager = () => {
 
   const deletepassword = async (id) => {
     try {
-      await await fetch(`${BASE_URL}/api/passwords/${id}`, {
+      await fetch(`${BASE_URL}/api/passwords/${id}`, {
         method: "DELETE"
       });
 
