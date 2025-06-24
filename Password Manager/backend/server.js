@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+const PORT = process.env.PORT || 5000;
 
 import passwordRoutes from './routes/passwords.js';
 
@@ -23,6 +24,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/api/passwords', passwordRoutes);
 
 // Start Server
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
-});
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+})
