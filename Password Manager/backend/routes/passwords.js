@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 });
 
 // Get all passwords
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => { 
   try {
     const passwords = await Password.find();
     res.status(200).json(passwords);
