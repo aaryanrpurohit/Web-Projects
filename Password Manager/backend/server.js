@@ -9,10 +9,16 @@ import passwordRoutes from './routes/passwords.js';
 dotenv.config();
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173", // Vite dev
+  "https://web-projects-rgw873vje-aaryan-rajpurohits-projects.vercel.app", // your frontend prod
+];
+
 app.use(cors({
-  origin: "https://web-projects-rgw873vje-aaryan-rajpurohits-projects.vercel.app",
+  origin: allowedOrigins,
+  credentials: true
 }));
-;
+
 
 app.use(express.json());
 
