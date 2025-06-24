@@ -8,10 +8,11 @@ const Manager = () => {
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
   const [savedPasswords, setSavedPasswords] = useState([]);
+  const API_BASE = import.meta.env.VITE_API_URL;
 
   const fetchPasswords = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/passwords");
+      const res = await fetch(`${API_BASE}/api/passwords`);
       const data = await res.json();
       console.log("Fetched data:", data);
 
