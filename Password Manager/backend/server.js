@@ -11,10 +11,12 @@ const app = express();
 // ✅ CORS — allow frontend to talk to backend
 app.use(cors({
   origin: [
-    "http://localhost:5173", // Vite dev
-    "https://web-projects-rgw873vje-aaryan-rajpurohits-projects.vercel.app" // your deployed frontend
+    "https://web-projects-rouge.vercel.app", // ✅ this is your actual deployed frontend
+    "http://localhost:5173",                 // ✅ for local testing
   ],
+  credentials: true,
 }));
+
 
 // ✅ Body parser
 app.use(express.json());
