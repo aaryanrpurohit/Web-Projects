@@ -1,0 +1,25 @@
+@import "tailwindcss";
+/* 
+body {
+  overflow-x:"hidden", 
+  background-color:"black",
+  color:"white";
+} */
+
+/* globals.css */
+.glow {
+  filter: drop-shadow(0 0 15px #00ffe0) drop-shadow(0 0 30px #00ffe0);
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
