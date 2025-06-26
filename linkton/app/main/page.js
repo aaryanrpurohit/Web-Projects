@@ -1,14 +1,14 @@
 "use client"
 import { GridBackground } from '@/components/GridBackground'
 import React from 'react'
-import { useState,useRef } from 'react'
+import { useState, useRef } from 'react'
 import { Orbitron } from 'next/font/google'
 const orbitron = Orbitron({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
 })
 
-const page = () => {
+const Page = () => {
   const [short_name, setshort_name] = useState("")
   const [shorturl, setshorturl] = useState("")
   const [url, seturl] = useState("")
