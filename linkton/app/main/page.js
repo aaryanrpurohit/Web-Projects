@@ -25,8 +25,8 @@ const Page = () => {
   };
   return (
     <>
-      <main className={`min-w-screen min-h-screen bg-black flex flex-col justify-center items-center ${orbitron.className} gap-1`}>
-        <div className='flex justify-center items-center'>
+      <main className={`min-w-screen min-h-screen  flex flex-col justify-center items-center ${orbitron.className} gap-1`}>
+        <div className='flex justify-center items-center gap-5'>
           <div className='flex justify-center items-center gap-3'>
           <div className="input-group">
             <input type="text" name="user" ref={urlRef} required className="input"/>

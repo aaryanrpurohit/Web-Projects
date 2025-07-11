@@ -15,7 +15,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="relative w-full min-h-screen overflow-hidden bg-black">
+    <main className="relative w-full min-h-screen overflow-hidden">
       <MotionProvider>
         <GridBackground />
         <GlowyShape type="pyramid" position="top-left" />
@@ -43,7 +43,7 @@ export default function Home() {
           onClick={() => router.push("/main")}
           className="mt-6"
         >
-          <a className={`btn ${orbitron.className} whitespace-nowrap px-6 py-3 text-base sm:text-lg`}>
+          <a className={`btn2 ${orbitron.className} whitespace-nowrap px-6 py-3 text-base sm:text-lg`}>
             <span>TRY NOW</span>
           </a>
         </button>
