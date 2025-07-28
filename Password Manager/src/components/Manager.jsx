@@ -189,8 +189,8 @@ const Manager = () => {
                           <img
                             src={
                               item.show
-                                ? "https://img.icons8.com/?size=100&id=85137&format=png&color=000000"
-                                : "https://img.icons8.com/?size=100&id=85130&format=png&color=000000"
+                                ? "https://img.icons8.com/?size=100&id=85137&format=png&color=222222"
+                                : "https://img.icons8.com/?size=100&id=85130&format=png&color=222222"
                             }
                             alt="toggle visibility"
                             className='w-5 h-5 m-[9px]'
