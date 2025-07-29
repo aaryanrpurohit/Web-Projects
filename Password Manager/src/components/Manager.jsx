@@ -130,7 +130,7 @@ const Manager = () => {
                 required
               />
               <button
-                className='bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition w-full mt-2'
+                className='bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition cursor-pointer w-full mt-2'
                 onClick={savePassword}
               >
                 Save
@@ -189,8 +189,8 @@ const Manager = () => {
                           <img
                             src={
                               item.show
-                                ? "https://img.icons8.com/?size=100&id=85137&format=png&color=000000"
-                                : "https://img.icons8.com/?size=100&id=85130&format=png&color=000000"
+                                ? "https://img.icons8.com/?size=100&id=85137&format=png&color=222222"
+                                : "https://img.icons8.com/?size=100&id=85130&format=png&color=222222"
                             }
                             alt="toggle visibility"
                             className='w-5 h-5 m-[9px]'
