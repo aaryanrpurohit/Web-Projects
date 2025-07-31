@@ -1,5 +1,7 @@
 import { Sora } from 'next/font/google';
 import "./globals.css";
+import { motion } from 'framer-motion';
+
 
 const sora = Sora({
   subsets: ['latin'],
@@ -9,7 +11,7 @@ const sora = Sora({
 
 
 export const metadata = {
-  title: 'Your Linktree Clone',
+  title: 'LinkCore',
   description: 'A modern link-in-bio platform for creators.',
   icons: {
     icon: "/favicon.png",
@@ -20,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`text-white  w-screen h-screen ${sora.className} bg-black antialiased`}>
+        className={`text-white w-screen h-screen ${sora.className} bg-black antialiased`}>
         {children}
       </body>
     </html>
