@@ -1,6 +1,6 @@
 import { Sora } from 'next/font/google';
 import "./globals.css";
-import { motion } from 'framer-motion';
+
 
 
 const sora = Sora({
