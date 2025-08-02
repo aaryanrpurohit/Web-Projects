@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`text-white w-screen h-screen ${poppins.className} bg-black`}>
+        className={`overflow-x-hidden text-white w-screen h-screen ${poppins.className} bg-black`}>
         {children}
       </body>
     </html>

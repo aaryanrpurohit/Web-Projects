@@ -13,11 +13,11 @@ const GlowingBackgroundWithParticles = () => {
 
     // Particle setup
     const particles = [];
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 30; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        r: Math.random() * 1.5 + 0.5,
+        r: Math.random() * 1.0 + 0.2,
         dx: (Math.random() - 0.5) * 0.3,
         dy: (Math.random() - 0.5) * 0.3,
       });
@@ -60,7 +60,7 @@ const GlowingBackgroundWithParticles = () => {
     <div className="absolute w-screen h-screen overflow-hidden bg-black">
       {/* Purple glow in center */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[500px] h-[500px] bg-purple-700 blur-3xl opacity-30 rounded-full" />
+        <div className="w-[500px] h-[500px] bg-purple-700 blur-3xl opacity-20  rounded-full" />
       </div>
 
       {/* Particle canvas */}
