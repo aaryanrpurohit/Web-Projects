@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import Background from "@/components/GlowingBackgroundWithParticles";
 
 const Introduction = () => {
+  const [isHovering, setIsHovering] = useState(false);
   return (
     <div className="relative w-full min-h-screen overflow-hidden bg-black text-white">
       {/* Background animation */}
@@ -17,9 +18,23 @@ const Introduction = () => {
         <motion.div
           animate={{ y: [100, 0], opacity: [0, 1] }}
           transition={{ duration: 0.7 }}
-          className="flex gap-2 items-center mb-6 sm:mb-10"
+          className="flex gap-1 justify-center items-center mb-6 sm:mb-10"
         >
-          <img src="/logo.png" alt="Logo" className="w-8 h-8 sm:w-9 sm:h-9" />
+          <motion.img
+                    src="/images/logo.png"
+                    alt="Linkcore Logo"
+                    width={25}
+                    height={25}
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                    animate={isHovering ? { rotate: 360 } : { rotate: 0 }}
+                    transition={{
+                      repeat: isHovering ? Infinity : 0,
+                      duration: 0.6,
+                      ease: "linear",
+                    }}
+                    className="cursor-pointer"
+                  />
           <span className="text-xs sm:text-sm">Link Sharing Platform</span>
         </motion.div>
 
@@ -27,7 +42,7 @@ const Introduction = () => {
         <motion.h2
           animate={{ y: [100, 0], opacity: [0, 1] }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-6 sm:mb-8"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6 sm:mb-8"
         >
           <div>Connect, Share,</div>
           <div>and Grow with Linkcore</div>
