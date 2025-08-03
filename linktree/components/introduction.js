@@ -6,8 +6,8 @@ import Link from "next/link";
 import Background from "@/components/GlowingBackgroundWithParticles";
 
 const Introduction = () => {
-  const [isHovering, setIsHovering] = useState(false);
-  return (
+
+return (
     <div className="relative w-full min-h-screen overflow-hidden bg-black text-white">
       {/* Background animation */}
       <Background />
@@ -21,20 +21,19 @@ const Introduction = () => {
           className="flex gap-1 justify-center items-center mb-6 sm:mb-10"
         >
           <motion.img
-                    src="/images/logo.png"
-                    alt="Linkcore Logo"
-                    width={25}
-                    height={25}
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}
-                    animate={isHovering ? { rotate: 360 } : { rotate: 0 }}
-                    transition={{
-                      repeat: isHovering ? Infinity : 0,
-                      duration: 0.6,
-                      ease: "linear",
-                    }}
-                    className="cursor-pointer"
-                  />
+            src="/images/logo.png"
+            alt="Linkcore Logo"
+            width={25}
+            height={25}
+            whileHover={{
+              rotate: 90,
+            }}
+            transition={{
+              duration: 1,
+              ease: "linear",
+            }}
+            className="cursor-pointer"
+          />
           <span className="text-xs sm:text-sm">Link Sharing Platform</span>
         </motion.div>
 

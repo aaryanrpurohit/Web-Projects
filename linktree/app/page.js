@@ -4,7 +4,8 @@ import React, { useEffect } from "react";
 import Navbar from "@/components/navbar";
 import Introduction from "@/components/introduction";
 import Info from "@/components/info";
-import Price from '@/components/brandprice'
+import Footer from '@/components/footer'
+
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -65,8 +66,10 @@ const Page = () => {
       <main className="w-auto h-auto">
         <Introduction />
         <Info />
-        <Price />
       </main>
+      <footer>
+      <Footer />
+      </footer>
     </>
   );
 };

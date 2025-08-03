@@ -356,6 +356,7 @@ const Info = () => {
             {/* Central logo */}
             <motion.g
               initial={{ scale: 0, opacity: 0 }}
+
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
@@ -383,6 +384,7 @@ const Info = () => {
                     "#06B6D4",
                   ],
                 }}
+
                 transition={{
                   duration: 7,
                   delay: 0 * 0.6 + 10, // Fixed: replaced 'i' with '0'
@@ -450,9 +452,9 @@ const Info = () => {
 
               {/* Central logo */}
               <foreignObject
-                x={centerX - 30}
+                x={centerX - 25}
                 y={centerY - 25}
-                width="60"
+                width="50"
                 height="50"
                 className="cursor-pointer"
               >
@@ -460,9 +462,12 @@ const Info = () => {
                   <motion.img
                     src="/images/logo.png"
                     alt="Linkcore Logo"
-                    className="w-10 h-8 object-contain"
+                    className="hover:scale-105 duration-75 w-8 h-8 object-contain"
                     animate={{
                       scale: [1, 1, 1, 1, 1.1, 1.1, 1.1, 1, 1],
+                    }}
+                    whileHover={{
+                    rotate:90
                     }}
                     transition={{
                       duration: 5,
