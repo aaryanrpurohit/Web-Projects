@@ -1,11 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "motion/react";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
+import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/nextjs';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isSignedIn, user } = useUser();
 
   return (
     <>
@@ -20,31 +22,42 @@ const Navbar = () => {
             width={30}
             height={30}
             className="sm:w-[35px] sm:h-[35px] cursor-pointer"
-            whileHover={{
-              rotate: 90
-            }}
-            transition={{
-              duration: 1,
-              ease: "linear",
-            }}
+            whileHover={{ rotate: 90 }}
+            transition={{ duration: 1, ease: 'linear' }}
           />
           <div className="mt-0.5 text-lg sm:text-xl md:text-2xl font-semibold text-white">
             LinkCore.
           </div>
         </Link>
 
-        {/* Desktop Navigation Buttons */}
-        <div className="hidden sm:flex gap-2 md:gap-4">
-          <Link href="/signin">
-            <button className="cursor-pointer px-3 py-2 md:px-5 md:py-2.5 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg hover:bg-[#8855ff] hover:border-[#8855ff]/50 transition-all duration-300 text-sm md:text-base text-white font-medium">
-              Sign In
-            </button>
-          </Link>
-          <Link href="/signup">
-            <button className="cursor-pointer px-3 py-2 md:px-5 md:py-2.5 rounded-lg backdrop-blur-md bg-[#8855ff]/80 border border-[#8855ff] hover:bg-[#8855ff] hover:scale-105 transition-all duration-300 text-sm md:text-base text-white font-medium">
-              Join Linkcore
-            </button>
-          </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden sm:flex gap-4 items-center">
+          {isSignedIn ? (
+            <div className="flex items-center gap-3">
+              <img
+                src={user?.imageUrl}
+                alt="User Avatar"
+                className="w-8 h-8 rounded-full border border-white"
+              />
+              <span className="text-white text-sm hidden md:inline">
+                {user?.firstName}
+              </span>
+              <UserButton afterSignOutUrl="/" />
+            </div>
+          ) : (
+            <>
+              <SignInButton>
+                <button className="cursor-pointer px-3 py-2 md:px-5 md:py-2.5 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg hover:bg-[#8855ff] hover:border-[#8855ff]/50 transition-all duration-300 text-sm md:text-base text-white font-medium">
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignUpButton>
+                <button className="cursor-pointer px-3 py-2 md:px-5 md:py-2.5 rounded-lg backdrop-blur-md bg-[#8855ff]/80 border border-[#8855ff] hover:bg-[#8855ff] hover:scale-105 transition-all duration-300 text-sm md:text-base text-white font-medium">
+                  Join Linkcore
+                </button>
+              </SignUpButton>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -72,34 +85,42 @@ const Navbar = () => {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         className={`sm:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[95%] max-w-sm z-40 ${
-          isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+          isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
         }`}
       >
         <div className="backdrop-blur-md bg-black/30 border border-white/20 rounded-xl p-4 shadow-xl">
           <div className="flex flex-col gap-3">
-            <Link
-              href="/signin"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <button className="w-full cursor-pointer px-4 py-3 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg hover:bg-[#8855ff] hover:border-[#8855ff]/50 transition-all duration-300 text-base text-white font-medium">
-                Sign In
-              </button>
-            </Link>
-            <Link
-              href="/signup"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <button className="w-full cursor-pointer px-4 py-3 rounded-lg backdrop-blur-md bg-[#8855ff]/80 border border-[#8855ff] hover:bg-[#8855ff] transition-all duration-300 text-base text-white font-medium">
-                Join Linkcore
-              </button>
-            </Link>
+            {isSignedIn ? (
+              <div className="flex items-center justify-between">
+                <img
+                  src={user?.imageUrl}
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full border border-white"
+                />
+                <span className="text-white text-base">{user?.firstName}</span>
+                <UserButton afterSignOutUrl="/" />
+              </div>
+            ) : (
+              <>
+                <SignInButton>
+                  <button className="w-full cursor-pointer px-4 py-3 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg hover:bg-[#8855ff] hover:border-[#8855ff]/50 transition-all duration-300 text-base text-white font-medium">
+                    Sign In
+                  </button>
+                </SignInButton>
+                <SignUpButton>
+                  <button className="w-full cursor-pointer px-4 py-3 rounded-lg backdrop-blur-md bg-[#8855ff]/80 border border-[#8855ff] hover:bg-[#8855ff] transition-all duration-300 text-base text-white font-medium">
+                    Join Linkcore
+                  </button>
+                </SignUpButton>
+              </>
+            )}
           </div>
         </div>
       </motion.div>
 
-      {/* Mobile Menu Backdrop */}
+      {/* Backdrop */}
       {isMobileMenuOpen && (
         <div
           className="sm:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30"

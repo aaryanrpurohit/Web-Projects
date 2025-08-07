@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.28.1",
     "@studio-freight/lenis": "^1.0.42",
     "gsap": "^3.13.0",
     "lucide": "^0.536.0",

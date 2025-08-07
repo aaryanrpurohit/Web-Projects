@@ -1,11 +1,12 @@
-"use client";
+'use client'
 
 import React, { useEffect } from "react";
 import Navbar from "@/components/navbar";
 import Introduction from "@/components/introduction";
 import Info from "@/components/info";
-import Footer from '@/components/footer'
-
+import Footer from "@/components/footer";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -14,6 +15,17 @@ import Lenis from "@studio-freight/lenis";
 gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
+  const { isSignedIn } = useUser();
+  const router = useRouter();
+
+  // 🔁 Redirect if user is signed in
+  useEffect(() => {
+    if (isSignedIn) {
+      router.push("/dashboard");
+    }
+  }, [isSignedIn, router]);
+
+  // 🔄 GSAP + Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -46,7 +58,6 @@ const Page = () => {
     });
 
     ScrollTrigger.addEventListener("refresh", () => {
-      // No .update() in Lenis — but this ensures layout is recalculated
       requestAnimationFrame(() => ScrollTrigger.refresh());
     });
 
@@ -68,7 +79,7 @@ const Page = () => {
         <Info />
       </main>
       <footer>
-      <Footer />
+        <Footer />
       </footer>
     </>
   );
