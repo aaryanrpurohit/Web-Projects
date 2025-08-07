@@ -21,7 +21,7 @@ const Page = () => {
   // 🔁 Redirect if user is signed in
   useEffect(() => {
     if (isSignedIn) {
-      router.push("/dashboard");
+      router.push("/");
     }
   }, [isSignedIn, router]);
 
