@@ -9,4 +9,5 @@ const LinkSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.Link || mongoose.model("links", LinkSchema);
+// Fix: Use consistent naming - either "Link" for both or "links" for both
+export default mongoose.models.links || mongoose.model("links", LinkSchema);
