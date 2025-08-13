@@ -11,7 +11,7 @@ const app = express();
 // ✅ CORS — allow frontend to talk to backend
 app.use(cors({
   origin: [
-    "https://web-projects-rouge.vercel.app", // ✅ this is your actual deployed frontend
+    "https://rawvault.vercel.app", // ✅ this is your actual deployed frontend
     "http://localhost:5173",                 // ✅ for local testing
   ],
   credentials: true,
