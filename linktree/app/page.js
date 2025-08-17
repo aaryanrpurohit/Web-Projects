@@ -5,11 +5,11 @@ import Navbar from "@/components/navbar";
 import Introduction from "@/components/introduction";
 import Info from "@/components/info";
 import Footer from "@/components/footer";
+
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger);

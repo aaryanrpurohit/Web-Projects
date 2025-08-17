@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const LinkSchema = new mongoose.Schema(
   {
-    userId: { type: String, required: true }, // to separate accounts
+    userId: { type: String, required: true },// to separate accounts
+    username: { type: String, required: true },
     name: { type: String, required: true },
     url: { type: String, required: true },
   },

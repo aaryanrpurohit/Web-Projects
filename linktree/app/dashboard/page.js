@@ -68,7 +68,7 @@ const Page = () => {
   const fetchLinks = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/links?userId=${user.id}`);
+      const res = await fetch(`/api/links`); // ✅ removed userId param
       if (res.ok) {
         const data = await res.json();
         setLinks(data);
@@ -99,11 +99,10 @@ const Page = () => {
 
     try {
       setIsSubmitting(true);
-      const userId = user.id;
       const res = await fetch("/api/links", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, url, userId }),
+        body: JSON.stringify({ name, url }), // ✅ removed userId
       });
 
       if (res.ok) {
@@ -204,13 +203,13 @@ const Page = () => {
       <nav>
         <Navbar />
       </nav>
-      <main className="min-h-screen w-full flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center items-center p-4 lg:p-0">
+      <main className="min-h-screen w-full flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center items-center p-4  lg:p-0">
         {/* Add Links Section */}
         <motion.section
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="bg-[#1c1a1e] w-full lg:w-[40%] max-w-lg h-auto lg:h-[80vh] rounded-lg flex flex-col justify-center items-center p-6 lg:p-8"
+          className="bg-[#1c1a1e] w-full lg:w-[40%] max-w-lg h-auto lg:h-[80vh] rounded-lg mt-5 flex flex-col justify-center items-center p-6 lg:p-8"
         >
           <motion.div variants={itemVariants} className="text-center mb-8">
             <h2 className="text-3xl lg:text-5xl font-semibold leading-tight">
@@ -287,10 +286,10 @@ const Page = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="bg-[#1c1a1e] w-full lg:w-[40%] max-w-lg h-auto lg:h-[80vh] rounded-lg flex flex-col"
+          className="justify-center mt-4 bg-[#1c1a1e] w-full lg:w-[40%] max-w-lg h-auto lg:h-[80vh] rounded-lg  flex flex-col"
         >
           <motion.div variants={itemVariants} className="text-center py-6">
-            <h2 className="text-3xl lg:text-5xl font-semibold leading-tight">
+            <h2 className="mt-20 text-3xl lg:text-5xl font-semibold leading-tight">
               <span className='text-[#794be2]'>
                 Your&nbsp;
               </span>
@@ -323,7 +322,7 @@ const Page = () => {
                   animate="visible"
                   className="text-center text-gray-400 mt-10"
                 >
-                
+
                   No links saved yet. Add your first link!
                 </motion.div>
               ) : (
