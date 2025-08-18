@@ -32,26 +32,30 @@ const Page = () => {
   return (
     <>
       <header>
-         <Navbar onNavigate={scrollToSection} />
+        <Navbar onNavigate={scrollToSection} />
       </header>
       <main>
-        <section  id="hero">
+        <section id="hero">
           <Hero />
         </section>
-        <section ref={workRef}  id="work">
+        <section ref={workRef} id="work">
           <Work />
         </section>
         <section ref={servicesRef} id="service">
-        <Service />
+          <Service />
         </section>
         <section ref={aboutRef} id="about">
-        <About_us />
+          <About_us />
         </section>
         <section ref={contactRef} id="contact">
-        <Contact_us />
+          <Contact_us />
         </section>
       </main>
-
+      <footer className="flex justify-end items-center m-2 mr-20">
+        <div>
+          Made by <span className="font-black">Aaryan Rajpurohit</span>
+        </div>
+      </footer>
     </>
   );
 };

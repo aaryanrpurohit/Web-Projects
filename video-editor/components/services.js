@@ -13,57 +13,59 @@ const ServicesSection = () => {
   const taglineInView = useInView(taglineRef, { once: true, threshold: 0.3 });
 
   const services = [
-    {
-      id: 1,
-      icon: Scissors,
-      title: "Video Editing",
-      features: [
-        { name: "Cutting", description: "Remove distractions and keep only what matters — ensuring your message stays powerful and engaging." },
-        { name: "Trimming", description: "Sharpen every scene with precision edits that highlight your best moments without unnecessary filler." },
-        { name: "Syncing", description: "Perfectly align visuals and audio so your content feels smooth, professional, and natural." }
-      ]
-    },
-    {
-      id: 2,
-      icon: Play,
-      title: "Storytelling",
-      features: [
-        { name: "Flow", description: "Craft seamless transitions that keep viewers hooked from start to finish." },
-        { name: "Pacing", description: "Balance speed and energy so your story feels dynamic, not rushed or dragged out." },
-        { name: "Hooks", description: "Open with attention-grabbing moments that instantly draw the audience in." }
-      ]
-    },
-    {
-      id: 3,
-      icon: Zap,
-      title: "Motion & Animation",
-      features: [
-        { name: "3D Animation", description: "Bring depth and dimension to your videos with visuals that captivate and impress." },
-        { name: "Titles", description: "Use bold, cinematic titles that make your message impossible to ignore." },
-        { name: "Captions", description: "Crystal-clear captions that boost accessibility and retention while staying on brand." }
-      ]
-    },
-    {
-      id: 4,
-      icon: Palette,
-      title: "Color & Visual Enhancement",
-      features: [
-        { name: "Correction", description: "Fix lighting, tones, and color balance to achieve a polished, natural look." },
-        { name: "Grading", description: "Apply cinematic color grading that sets the mood and evokes emotion." },
-        { name: "Matching", description: "Ensure every shot feels consistent, professional, and part of one seamless story." }
-      ]
-    },
-    {
-      id: 5,
-      icon: Volume2,
-      title: "Sound Design",
-      features: [
-        { name: "Cleanup", description: "Remove background noise and distractions for crystal-clear audio quality." },
-        { name: "Music", description: "Select powerful, tailored soundtracks that amplify your message and connect emotionally." },
-        { name: "Effects", description: "Add immersive audio layers that make your video feel alive and cinematic." }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    icon: Scissors,
+    title: "Video Editing",
+    features: [
+      { name: "Cutting", description: "Keep only what matters." },
+      { name: "Trimming", description: "Sharp, clean edits." },
+      { name: "Syncing", description: "Audio and video in sync." }
+    ]
+  },
+  {
+    id: 2,
+    icon: Play,
+    title: "Storytelling",
+    features: [
+      { name: "Flow", description: "Smooth, seamless scenes." },
+      { name: "Pacing", description: "Perfect story rhythm." },
+      { name: "Hooks", description: "Grab attention fast." }
+    ]
+  },
+  {
+    id: 3,
+    icon: Zap,
+    title: "Motion & Animation",
+    features: [
+      { name: "3D", description: "Depth and impact." },
+      { name: "Titles", description: "Bold cinematic text." },
+      { name: "Captions", description: "Clear, branded subs." }
+    ]
+  },
+  {
+    id: 4,
+    icon: Palette,
+    title: "Color & Visuals",
+    features: [
+      { name: "Correction", description: "Clean, polished look." },
+      { name: "Grading", description: "Cinematic tones." },
+      { name: "Matching", description: "Consistent shots." }
+    ]
+  },
+  {
+    id: 5,
+    icon: Volume2,
+    title: "Sound Design",
+    features: [
+      { name: "Cleanup", description: "Noise-free audio." },
+      { name: "Music", description: "Emotional soundtracks." },
+      { name: "Effects", description: "Immersive layers." }
+    ]
+  }
+];
+
+
 
   // Animation container + stagger
   const containerVariants = {
@@ -118,9 +120,9 @@ const ServicesSection = () => {
                 key={service.id}
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                className="group relative rounded-xl p-[1px] bg-gradient-to-r from-gray-600  to-black"
+                className="group relative rounded-xl  bg-gradient-to-r from-gray-600  to-black"
               >
-                <div className="bg-[#161616] rounded-xl p-8 h-full border border-gray-800 hover:border-gray-700 transition-all duration-300">
+                <div className="bg-[#161616] rounded-xl p-8 h-full transition-all duration-300">
                   {/* Icon */}
                   <div className="relative mb-6">
                     <div className="w-16 h-16 rounded-full bg-[#161616] border-2 border-gray-700 flex items-center justify-center group-hover:border-gray-600 transition-colors duration-300">

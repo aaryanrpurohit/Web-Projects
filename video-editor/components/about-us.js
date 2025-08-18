@@ -11,44 +11,41 @@ const AboutMe = () => {
           setIsVisible(true);
         }
       },
-      {
-        threshold: 0.2,
-        rootMargin: '-50px'
-      }
+      { threshold: 0.2, rootMargin: '-50px' }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
   const textLines = [
-    "Hi, I'm Mohit — a video editor who believes every frame has the power to tell a story.",
-    "I help creators, YouTubers, and brands turn raw footage into videos that connect, inspire, and keep viewers watching.",
-    "Whether it's a short reel or a long-form story, I focus on making every second count."
+    "Hi, I'm Mohit — a passionate video editor helping creators, YouTubers, and brands transform raw footage into content that's polished, engaging, and memorable.",
+    "With expertise in video editing, motion graphics, sound design, and color grading, I create visuals that connect emotionally and keep viewers hooked.",
+    "Whether it’s fast-paced reels or cinematic storytelling, my focus is on precision, creativity, and making every second count."
   ];
+
+  const highlight = (text, i) => (
+    <span
+      key={i}
+      className="font-bold bg-gradient-to-r from-gray-300 via-gray-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_1px_rgba(255,255,255,0.6)]"
+    >
+      {text}
+    </span>
+  );
 
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen bg-black py-20 px-6 flex items-center justify-center relative overflow-hidden"
+      className="h-auto bg-black py-20 px-6 flex items-center justify-center relative overflow-hidden"
     >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-transparent to-gray-800/10" />
-
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Main Heading */}
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <h2 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-500 via-gray-300 to-white bg-clip-text text-transparent">
@@ -57,30 +54,21 @@ const AboutMe = () => {
         </div>
 
         {/* Two Column Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center h-auto">
           {/* Left Column - Image */}
           <div
             className={`transition-all duration-1200 delay-300 ${
-              isVisible
-                ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-95'
+              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
             }`}
           >
-            <div className="relative group">
-              {/* Gradient border container */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 via-white to-gray-400 rounded-xl opacity-75 group-hover:opacity-100 transition-opacity duration-300 blur-sm group-hover:blur-none" />
-
-              {/* Image container */}
-              <div className="relative bg-black rounded-xl p-1">
-                <img
-                  src="/MyImage.jpg"
-                  alt="Mohit - Video Editor"
-                  className="w-full h-[450px] object-cover rounded-xl"
-                />
-              </div>
-
+            <div className="relative group flex justify-center">
+              <img
+                src="/Image.jpg"
+                alt="Mohit - Video Editor"
+                className="w-[85%] md:w-[70%] lg:w-[90%] h-auto rounded-2xl object-cover shadow-lg"
+              />
               {/* Hover glow effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-gray-600/20 via-white/20 to-gray-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+              {/* <div className="absolute -inset-2 bg-gradient-to-r from-gray-600/20 via-white/20 to-gray-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" /> */}
             </div>
           </div>
 
@@ -90,41 +78,26 @@ const AboutMe = () => {
               <div
                 key={index}
                 className={`transition-all duration-800 ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-6'
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-                style={{
-                  transitionDelay: `${400 + index * 200}ms`
-                }}
+                style={{ transitionDelay: `${400 + index * 200}ms` }}
               >
-                {index === 0 ? (
-                  // First line with special styling for name and role
-                  <p className="text-xl md:text-2xl leading-relaxed">
-                    <span className="bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent font-semibold">
-                      Hi, I'm Mohit
-                    </span>
-                    <span className="text-gray-300"> — a </span>
-                    <span className="font-bold bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent">
-                      video editor
-                    </span>
-                    <span className="text-gray-300"> who believes every frame has the power to tell a story.</span>
-                  </p>
-                ) : index === 1 ? (
-                  // Second line with highlighted roles
-                  <p className="text-xl md:text-2xl leading-relaxed text-gray-300">
-                    I help{' '}
-                    <span className="font-bold bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent">
-                      creators, YouTubers, and brands
-                    </span>
-                    {' '}turn raw footage into videos that connect, inspire, and keep viewers watching.
-                  </p>
-                ) : (
-                  // Third line - standard styling
-                  <p className="text-xl md:text-2xl leading-relaxed text-gray-300">
-                    {line}
-                  </p>
-                )}
+                <p className="text-xl md:text-2xl lg:text-[1.7rem] leading-relaxed text-gray-300">
+                  {line
+                    .replace("video editor", "§video editor§")
+                    .replace("creators", "§creators§")
+                    .replace("YouTubers", "§YouTubers§")
+                    .replace("brands", "§brands§")
+                    .replace("motion graphics", "§motion graphics§")
+                    .replace("sound design", "§sound design§")
+                    .replace("color grading", "§color grading§")
+                    .split(/(§.*?§)/g)
+                    .map((part, i) =>
+                      part.startsWith("§")
+                        ? highlight(part.replace(/§/g, ""), i)
+                        : <span key={i}>{part}</span>
+                    )}
+                </p>
               </div>
             ))}
           </div>

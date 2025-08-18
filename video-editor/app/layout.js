@@ -10,6 +10,9 @@ const poppins = Poppins({
 export const metadata = {
   title: "My Portfolio",
   description: "My Porfolio",
+  icons: {
+    icon: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({ children }) {

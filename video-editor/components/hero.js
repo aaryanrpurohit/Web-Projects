@@ -91,8 +91,8 @@ export default function InfoSection() {
 
       {/* Subtle gradient overlays */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-gray-900/20 pointer-events-none"></div>
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-400/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-yellow-400/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-balckrounded-full blur-3xl"></div>
     </div>
   );
 }
