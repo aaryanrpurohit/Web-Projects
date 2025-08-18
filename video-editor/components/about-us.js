@@ -25,8 +25,8 @@ const AboutMe = () => {
 
   const textLines = [
     "Hi, I'm Mohit — a passionate video editor helping creators, YouTubers, and brands transform raw footage into content that's polished, engaging, and memorable.",
-    "With expertise in video editing, motion graphics, sound design, and color grading, I create visuals that connect emotionally and keep viewers hooked.",
-    "Whether it’s fast-paced reels or cinematic storytelling, my focus is on precision, creativity, and making every second count.",
+    "I work with industry‑leading creative tools to bring ideas to life. I use Premiere Pro, After Effects, and Photoshop for crafting motion graphics and design.",
+    "Whether it’s fast-paced reels or cinematic storytelling, my focus is on making every second count.",
   ];
 
   const highlight = (text, i) => (
@@ -70,7 +70,7 @@ const AboutMe = () => {
                 width={600} // ✅ required for next/image
                 height={600} // ✅ required for next/image
                 className="w-[85%] md:w-[70%] lg:w-[90%] h-auto rounded-2xl object-cover shadow-lg"
-              
+
               />
             </div>
           </div>
@@ -93,9 +93,9 @@ const AboutMe = () => {
                     .replace("creators", "§creators§")
                     .replace("YouTubers", "§YouTubers§")
                     .replace("brands", "§brands§")
-                    .replace("motion graphics", "§motion graphics§")
-                    .replace("sound design", "§sound design§")
-                    .replace("color grading", "§color grading§")
+                    .replace("Premiere Pro", "§Premiere Pro§")
+                    .replace("After Effects", "§After Effects§")
+                    .replace("Photoshop", "§Photoshop§")
                     .split(/(§.*?§)/g)
                     .map((part, i) =>
                       part.startsWith("§")

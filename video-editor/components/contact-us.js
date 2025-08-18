@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Mail,
@@ -8,6 +9,7 @@ import {
   Youtube,
   Check,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const GetInTouch = () => {
   const sectionRef = useRef(null);
@@ -83,7 +85,7 @@ const GetInTouch = () => {
     {
       icon: MapPin,
       label: "Address",
-      value: "1P14, Old Housing Board, Pali, RAJASTHAN, INDIA",
+      value: "1P14, Old Housing Board, Pali, Rajpurohit, India",
       href: null,
       copy: false,
     },
@@ -108,7 +110,7 @@ const GetInTouch = () => {
   ];
 
   return (
-    <div className="bg-black text-white py-16 px-6 sm:px-10 overflow-hidden">
+    <div className="bg-black text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden">
       <style jsx>{`
         .animate-fade-in-up {
           animation: fadeInUp 0.8s ease-out forwards;
@@ -151,7 +153,7 @@ const GetInTouch = () => {
           bottom: -8px;
           left: 50%;
           transform: translateX(-50%);
-          width: 80px;
+          width: 60px;
           height: 2px;
           background: linear-gradient(135deg, #374151, #6b7280, #9ca3af);
           border-radius: 1px;
@@ -173,24 +175,47 @@ const GetInTouch = () => {
 
       <div className="max-w-7xl mx-auto">
         <section ref={sectionRef} className="opacity-0">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Left Column - Heading & Subtext */}
-            <div className="space-y-6 text-center lg:text-left">
-              <h2
-                ref={headingRef}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text gradient-underline opacity-0"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            {/* Left Column */}
+            <div className="flex flex-col gap-12 text-center lg:text-left">
+              <div className="space-y-6">
+                <h2
+                  ref={headingRef}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text gradient-underline opacity-0"
+                >
+                  Get in Touch
+                </h2>
+                <p
+                  ref={subtextRef}
+                  className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed opacity-0 max-w-lg mx-auto lg:mx-0"
+                >
+                  Let’s create something{" "}
+                  <span className="font-semibold text-white">amazing</span> together.
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeOut",
+                  delay: 1.0,
+                }}
               >
-                Get in Touch
-              </h2>
-              <p
-                ref={subtextRef}
-                className="text-lg sm:text-xl text-gray-300 leading-relaxed opacity-0 max-w-xl mx-auto lg:mx-0"
-              >
-                Let’s create something <span className="font-semibold text-white">amazing</span> together.
-              </p>
+                <a
+                  href="https://calendly.com/rajpurohitmohit954/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-2 sm:px-8 sm:py-3 md:px-10 md:py-4 bg-white hover:bg-gray-100 text-black font-semibold text-sm sm:text-base md:text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  Let's Connect
+                </a>
+              </motion.div>
             </div>
 
-            {/* Right Column - Contact Details & Social */}
+            {/* Right Column */}
             <div className="space-y-10">
               {/* Contact Details */}
               <div ref={contactDetailsRef} className="space-y-6">
@@ -202,18 +227,20 @@ const GetInTouch = () => {
                         onClick={() =>
                           detail.copy && handleCopy(detail.value, detail.label)
                         }
-                        className="flex items-center gap-4 p-4 rounded-xl bg-zinc-900/70 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 hover:bg-zinc-800/50 glow-hover group cursor-pointer"
+                        className="flex items-center gap-4 p-3 sm:p-4 rounded-xl bg-zinc-900/70 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 hover:bg-zinc-800/50 glow-hover group cursor-pointer"
                       >
-                        <div className="p-3 rounded-lg bg-zinc-800 border border-zinc-700 group-hover:bg-zinc-700 group-hover:scale-105 transition-all duration-300">
+                        <div className="p-2 sm:p-3 rounded-lg bg-zinc-800 border border-zinc-700 group-hover:bg-zinc-700 group-hover:scale-105 transition-all duration-300">
                           {copied === detail.label ? (
-                            <Check className="w-6 h-6 text-green-400" />
+                            <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-400" />
                           ) : (
-                            <IconComponent className="w-6 h-6 text-gray-300 group-hover:text-white" />
+                            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 group-hover:text-white" />
                           )}
                         </div>
                         <div className="overflow-hidden">
-                          <p className="text-gray-400 text-sm font-medium">{detail.label}</p>
-                          <p className="text-white text-base sm:text-lg font-semibold truncate">
+                          <p className="text-gray-400 text-xs sm:text-sm font-medium">
+                            {detail.label}
+                          </p>
+                          <p className="text-white text-sm sm:text-base md:text-lg font-semibold truncate">
                             {copied === detail.label
                               ? `${detail.label} Copied!`
                               : detail.value}
@@ -227,10 +254,10 @@ const GetInTouch = () => {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                   Connect with me
                 </h3>
-                <div ref={socialsRef} className="flex flex-wrap gap-4">
+                <div ref={socialsRef} className="flex flex-wrap gap-3 sm:gap-4">
                   {socialLinks.map((social, index) => {
                     const IconComponent = social.icon;
                     return (
@@ -239,10 +266,10 @@ const GetInTouch = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="social-item w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:bg-zinc-700 hover:border-zinc-600 group"
+                        className="social-item w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:bg-zinc-700 hover:border-zinc-600 group"
                         title={social.label}
                       >
-                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white transition-colors duration-300" />
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-400 group-hover:text-white transition-colors duration-300" />
                       </a>
                     );
                   })}
