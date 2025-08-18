@@ -1,5 +1,6 @@
-"use client"
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image"; // ✅ Import Next.js Image
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,7 +13,7 @@ const AboutMe = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2, rootMargin: '-50px' }
+      { threshold: 0.2, rootMargin: "-50px" }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -25,7 +26,7 @@ const AboutMe = () => {
   const textLines = [
     "Hi, I'm Mohit — a passionate video editor helping creators, YouTubers, and brands transform raw footage into content that's polished, engaging, and memorable.",
     "With expertise in video editing, motion graphics, sound design, and color grading, I create visuals that connect emotionally and keep viewers hooked.",
-    "Whether it’s fast-paced reels or cinematic storytelling, my focus is on precision, creativity, and making every second count."
+    "Whether it’s fast-paced reels or cinematic storytelling, my focus is on precision, creativity, and making every second count.",
   ];
 
   const highlight = (text, i) => (
@@ -46,7 +47,7 @@ const AboutMe = () => {
         {/* Main Heading */}
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <h2 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-500 via-gray-300 to-white bg-clip-text text-transparent">
@@ -59,17 +60,18 @@ const AboutMe = () => {
           {/* Left Column - Image */}
           <div
             className={`transition-all duration-1200 delay-300 ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
             <div className="relative group flex justify-center">
-              <img
+              <Image
                 src="/MyImage.png"
                 alt="Mohit - Video Editor"
+                width={600} // ✅ required for next/image
+                height={600} // ✅ required for next/image
                 className="w-[85%] md:w-[70%] lg:w-[90%] h-auto rounded-2xl object-cover shadow-lg"
+                priority // loads faster since it's above the fold
               />
-              {/* Hover glow effect */}
-              {/* <div className="absolute -inset-2 bg-gradient-to-r from-gray-600/20 via-white/20 to-gray-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" /> */}
             </div>
           </div>
 
@@ -79,7 +81,9 @@ const AboutMe = () => {
               <div
                 key={index}
                 className={`transition-all duration-800 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${400 + index * 200}ms` }}
               >
