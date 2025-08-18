@@ -6,12 +6,18 @@ export default function InfoSection() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Grid pattern background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
+      <div className="absolute inset-0 opacity-30">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255, 255, 150, 0.15) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(255, 255, 150, 0.15) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }}
+        ></div>
+
+        {/* Center glow */}
+        <div className="absolute inset-0 bg-radial from-yellow-300/40 via-yellow-100/10 to-transparent"></div>
       </div>
 
       {/* Main content container */}
@@ -22,7 +28,7 @@ export default function InfoSection() {
         transition={{
           duration: 0.8,
           ease: "easeOut",
-          delay: 0.3
+          delay: 0.3,
         }}
       >
         {/* Main heading */}
@@ -33,7 +39,7 @@ export default function InfoSection() {
           transition={{
             duration: 0.8,
             ease: "easeOut",
-            delay: 0.5
+            delay: 0.5,
           }}
         >
           Video editing,
@@ -49,7 +55,7 @@ export default function InfoSection() {
           transition={{
             duration: 0.8,
             ease: "easeOut",
-            delay: 0.7
+            delay: 0.7,
           }}
         >
           Edits that grab attention, tell your story, and keep viewers watching.
@@ -62,7 +68,7 @@ export default function InfoSection() {
           transition={{
             duration: 0.8,
             ease: "easeOut",
-            delay: 1.0
+            delay: 1.0,
           }}
         >
           <a
@@ -83,7 +89,7 @@ export default function InfoSection() {
           transition={{
             duration: 0.8,
             ease: "easeOut",
-            delay: 1.2
+            delay: 1.2,
           }}
         >
           Video Editor · Mohit Rajpurohit
@@ -92,8 +98,6 @@ export default function InfoSection() {
 
       {/* Subtle gradient overlays */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-gray-900/20 pointer-events-none"></div>
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-balckrounded-full blur-3xl"></div>
     </div>
   );
 }
