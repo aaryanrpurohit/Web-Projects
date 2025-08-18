@@ -65,12 +65,12 @@ const AboutMe = () => {
           >
             <div className="relative group flex justify-center">
               <Image
-                src="/myimage.png"
+                src="/myimage.jpg"
                 alt="Mohit - Video Editor"
                 width={600} // ✅ required for next/image
                 height={600} // ✅ required for next/image
                 className="w-[85%] md:w-[70%] lg:w-[90%] h-auto rounded-2xl object-cover shadow-lg"
-                priority // loads faster since it's above the fold
+              
               />
             </div>
           </div>
