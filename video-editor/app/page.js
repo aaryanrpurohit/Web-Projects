@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
 import Work from '@/components/work'
+import Service from '@/components/services'
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -35,8 +36,11 @@ const Page = () => {
         <section  id="hero">
           <Hero />
         </section>
-        <section ref={workRef}   id="work">
+        <section ref={workRef}  id="work">
           <Work />
+        </section>
+        <section ref={servicesRef} id="service">
+        <Service />
         </section>
       </main>
 

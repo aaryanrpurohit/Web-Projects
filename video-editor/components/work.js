@@ -138,7 +138,7 @@ export default function VideosPortfolio() {
             <div className="max-w-8xl mx-auto">
                 {/* Long Form Section */}
                 <div ref={longFormRef} className="mb-16 sm:mb-20 lg:mb-24">
-                    <h2 className="long-form-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-gray-400 via-white to-gray-400 bg-clip-text text-transparent mb-8 sm:mb-12 lg:mb-16 text-center tracking-tight px-2 z-50">
+                    <h2 className="long-form-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold  mb-8 sm:mb-12 lg:mb-16 text-center leading-tight bg-gradient-to-r from-gray-500 via-gray-300 to-white bg-clip-text text-transparent tracking-tight px-2 z-50">
                         Long Form
                     </h2>
 
@@ -161,7 +161,7 @@ export default function VideosPortfolio() {
 
                 {/* Short Form Section */}
                 <div ref={shortFormRef}>
-                    <h2 className="short-form-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-gray-400 via-white to-gray-400 bg-clip-text text-transparent mb-8 sm:mb-12 lg:mb-16 text-center tracking-tight px-2">
+                    <h2 className="long-form-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold  mb-8 sm:mb-12 lg:mb-16 text-center leading-tight bg-gradient-to-r from-gray-500 via-gray-300 to-white bg-clip-text text-transparent tracking-tight px-2 z-50">
                         Short Form
                     </h2>
                     <div className="short-form-videos flex justify-center px-2">
