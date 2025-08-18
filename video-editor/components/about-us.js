@@ -63,7 +63,7 @@ const AboutMe = () => {
           >
             <div className="relative group flex justify-center">
               <img
-                src="/Image.jpg"
+                src="/MyImage.jpg"
                 alt="Mohit - Video Editor"
                 className="w-[85%] md:w-[70%] lg:w-[90%] h-auto rounded-2xl object-cover shadow-lg"
               />
