@@ -6,6 +6,8 @@ import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
 import Work from '@/components/work'
 import Service from '@/components/services'
+import About_us from '@/components/about-us'
+import Contact_us from '@/components/contact-us'
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -41,6 +43,12 @@ const Page = () => {
         </section>
         <section ref={servicesRef} id="service">
         <Service />
+        </section>
+        <section ref={aboutRef} id="about">
+        <About_us />
+        </section>
+        <section ref={contactRef} id="contact">
+        <Contact_us />
         </section>
       </main>
 

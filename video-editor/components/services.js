@@ -18,9 +18,9 @@ const ServicesSection = () => {
       icon: Scissors,
       title: "Video Editing",
       features: [
-        { name: "Cutting", description: "Remove unwanted sections." },
-        { name: "Trimming", description: "Keep essential moments." },
-        { name: "Syncing", description: "Align audio and visuals." }
+        { name: "Cutting", description: "Remove distractions and keep only what matters — ensuring your message stays powerful and engaging." },
+        { name: "Trimming", description: "Sharpen every scene with precision edits that highlight your best moments without unnecessary filler." },
+        { name: "Syncing", description: "Perfectly align visuals and audio so your content feels smooth, professional, and natural." }
       ]
     },
     {
@@ -28,9 +28,9 @@ const ServicesSection = () => {
       icon: Play,
       title: "Storytelling",
       features: [
-        { name: "Flow", description: "Natural engaging rhythm." },
-        { name: "Pacing", description: "Perfect energy balance." },
-        { name: "Hooks", description: "Grab attention instantly." }
+        { name: "Flow", description: "Craft seamless transitions that keep viewers hooked from start to finish." },
+        { name: "Pacing", description: "Balance speed and energy so your story feels dynamic, not rushed or dragged out." },
+        { name: "Hooks", description: "Open with attention-grabbing moments that instantly draw the audience in." }
       ]
     },
     {
@@ -38,9 +38,9 @@ const ServicesSection = () => {
       icon: Zap,
       title: "Motion & Animation",
       features: [
-        { name: "3D Animation", description: "Immersive effects." },
-        { name: "Titles", description: "Dynamic text elements." },
-        { name: "Captions", description: "Clear subtitles." }
+        { name: "3D Animation", description: "Bring depth and dimension to your videos with visuals that captivate and impress." },
+        { name: "Titles", description: "Use bold, cinematic titles that make your message impossible to ignore." },
+        { name: "Captions", description: "Crystal-clear captions that boost accessibility and retention while staying on brand." }
       ]
     },
     {
@@ -48,9 +48,9 @@ const ServicesSection = () => {
       icon: Palette,
       title: "Color & Visual Enhancement",
       features: [
-        { name: "Correction", description: "Fix lighting and color balance." },
-        { name: "Grading", description: "Add cinematic tones and mood." },
-        { name: "Matching", description: "Maintain visual consistency." }
+        { name: "Correction", description: "Fix lighting, tones, and color balance to achieve a polished, natural look." },
+        { name: "Grading", description: "Apply cinematic color grading that sets the mood and evokes emotion." },
+        { name: "Matching", description: "Ensure every shot feels consistent, professional, and part of one seamless story." }
       ]
     },
     {
@@ -58,35 +58,28 @@ const ServicesSection = () => {
       icon: Volume2,
       title: "Sound Design",
       features: [
-        { name: "Cleanup", description: "Remove noise for crisp audio." },
-        { name: "Music", description: "Curated soundtracks that fit." },
-        { name: "Effects", description: "Immersive audio layers." }
+        { name: "Cleanup", description: "Remove background noise and distractions for crystal-clear audio quality." },
+        { name: "Music", description: "Select powerful, tailored soundtracks that amplify your message and connect emotionally." },
+        { name: "Effects", description: "Add immersive audio layers that make your video feel alive and cinematic." }
       ]
     }
   ];
 
+  // Animation container + stagger
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
+  // Cards now ONLY fade in (no y movement)
   const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50
-    },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
 
@@ -105,7 +98,8 @@ const ServicesSection = () => {
             Our Services
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-16 leading-relaxed max-w-2xl mx-auto font-light bg-gradient-to-r from-gray-500 via-gray-300 to-white bg-clip-text text-transparent">
-            Crafting compelling visuals with precision, creativity, and storytelling — your vision, perfectly edited.
+            From cinematic edits to flawless sound design — we transform raw footage into powerful stories that{" "}
+            <span className="font-bold">captivate, engage, and inspire action.</span>
           </p>
         </motion.div>
 
@@ -123,44 +117,36 @@ const ServicesSection = () => {
               <motion.div
                 key={service.id}
                 variants={cardVariants}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                className="group relative bg-[#161616] rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-700/10"
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                className="group relative rounded-xl p-[1px] bg-gradient-to-r from-gray-600  to-black"
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gray-700/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* Icon */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-full bg-[#161616] border-2 border-gray-700 flex items-center justify-center group-hover:border-gray-600 transition-colors duration-300">
-                    <IconComponent className="w-8 h-8 text-gray-500 group-hover:text-gray-300 transition-colors duration-300" />
+                <div className="bg-[#161616] rounded-xl p-8 h-full border border-gray-800 hover:border-gray-700 transition-all duration-300">
+                  {/* Icon */}
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#161616] border-2 border-gray-700 flex items-center justify-center group-hover:border-gray-600 transition-colors duration-300">
+                      <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-gray-200 transition-colors duration-300" />
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="relative">
-                  <h3 className="text-xl font-bold mb-6 leading-tight bg-gradient-to-r from-gray-500 to-gray-400 bg-clip-text text-transparent">
-                    {service.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="relative">
+                    <h3 className="text-xl font-bold mb-6 leading-tight bg-gradient-to-r from-gray-500 to-gray-400 bg-clip-text text-transparent">
+                      {service.title}
+                    </h3>
 
-                  {/* Feature List */}
-                  <div className="space-y-4">
-                    {service.features.map((feature, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        {/* Blue Dot */}
-                        <div className="flex-shrink-0 w-2 h-2 rounded-full bg-blue-400 mt-2 shadow-sm shadow-blue-400/50"></div>
-                        <div className="flex-1">
-                          <span className="text-gray-300 font-semibold">
-                            {feature.name}
-                          </span>
-                          <span className="text-gray-500 text-sm ml-1">
-                            — {feature.description}
-                          </span>
+                    {/* Feature List */}
+                    <div className="space-y-4">
+                      {service.features.map((feature, index) => (
+                        <div key={index} className="flex items-start space-x-3">
+                          {/* Dot */}
+                          <div className="flex-shrink-0 w-2 h-2 rounded-full bg-white mt-2 shadow-sm shadow-blue-400/50"></div>
+                          <div className="flex-1">
+                            <span className="text-gray-300 font-semibold">{feature.name}</span>
+                            <span className="text-gray-500 text-sm ml-1">— {feature.description}</span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -177,8 +163,8 @@ const ServicesSection = () => {
           className="text-center"
         >
           <p className="text-lg leading-tight bg-gradient-to-r from-gray-500 via-gray-300 to-white bg-clip-text text-transparent tracking-tight">
-            Professional video editing solutions designed to make your content{' '}
-            <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent font-bold">unforgettable</span>.
+            Professional video editing crafted to make your brand{" "}
+            <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent font-bold">stand out, connect, and leave a lasting impression.</span>
           </p>
         </motion.div>
       </div>

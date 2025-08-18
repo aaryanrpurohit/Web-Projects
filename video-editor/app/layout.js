@@ -8,7 +8,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Create Next App",
+  title: "My Portfolio",
   description: "My Porfolio",
 };
 
