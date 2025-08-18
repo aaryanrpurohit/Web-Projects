@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function InfoSection() {
   return (
-    <div className="min-h-[80vh] bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Grid pattern background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
