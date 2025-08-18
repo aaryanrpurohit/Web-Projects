@@ -1,4 +1,4 @@
-"use client"
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -67,32 +67,25 @@ export default function VideosPortfolio() {
     const [selectedVideo, setSelectedVideo] = useState(null);
 
 
-    const VideoCard = ({ video, index, isShort = false, className = "" }) => {
-        const isVisible = visibleVideos.has(video.id);
-
-        return (
-            <div
-                className={`group cursor-pointer ${className} ${isShort ? 'flex justify-center' : ''}`}
-                onClick={() => setSelectedVideo(video)}
-                data-video-id={video.id}
-            >
-                <div className={`relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-900 shadow-xl sm:shadow-2xl transition-all duration-500 ${isShort ? 'aspect-[9/16] w-full max-w-[280px] sm:max-w-xs mx-auto' : 'aspect-video w-full h-[200px] sm:h-[250px] lg:h-[300px]'} ${isVisible ? 'ring-1 sm:ring-2 ring-red-500/30 shadow-red-500/20' : ''}`}>
-                    <iframe
-                        key={`${video.id}-${isVisible ? 'play' : 'pause'}`}
-                        src={isVisible
-                            ? `${video.url}?autoplay=1&mute=1&loop=1&playlist=${video.id}&controls=0&modestbranding=0&rel=0&iv_load_policy=3&fs=0&disablekb=1&showinfo=0&start=0&enablejsapi=1&playsinline=1`
-                            : `${video.url}?autoplay=0&mute=1&loop=1&playlist=${video.id}&controls=0&modestbranding=0&rel=0&iv_load_policy=3&fs=0&disablekb=1&showinfo=0&start=0&enablejsapi=1&playsinline=1`
-                        }
-                        title={video.title}
-                        className="w-full h-full transition-transform duration-500 group-hover:scale-105"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                    />
-                </div>
+   const VideoCard = ({ video, index, isShort = false, className = "" }) => {
+    return (
+        <div
+            className={`group cursor-pointer ${className} ${isShort ? 'flex justify-center' : ''}`}
+            onClick={() => setSelectedVideo(video)}
+        >
+            <div className={`relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-900 shadow-xl sm:shadow-2xl transition-all duration-500 ${isShort ? 'aspect-[9/16] w-full max-w-[280px] sm:max-w-xs mx-auto' : 'aspect-video w-full h-[200px] sm:h-[250px] lg:h-[300px]'}`}>
+                <iframe
+                    src={`${video.url}?autoplay=1&mute=1&loop=1&playlist=${video.id}&controls=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0&disablekb=1&showinfo=0&start=0&playsinline=1`}
+                    title={video.title}
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                />
             </div>
-        );
-    };
+        </div>
+    );
+};
 
     const VideoModal = ({ video, onClose }) => (
         <AnimatePresence>
