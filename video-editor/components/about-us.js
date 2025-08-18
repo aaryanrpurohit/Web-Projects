@@ -65,7 +65,7 @@ const AboutMe = () => {
           >
             <div className="relative group flex justify-center">
               <Image
-                src="/MyImage.png"
+                src="/myimage.png"
                 alt="Mohit - Video Editor"
                 width={600} // ✅ required for next/image
                 height={600} // ✅ required for next/image
