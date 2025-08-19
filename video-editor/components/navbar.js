@@ -139,9 +139,9 @@ export default function GlassmorphicNavbar({ onNavigate }) {
                       key={item.name}
                       onClick={() => handleNavClick(item.id)}
                       className="w-full text-left px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg font-normal text-base transition-all duration-200"
-                      initial={{ opacity: 0,}}
-                      animate={{ opacity: 1, }}
-                      transition={{ delay: index * 0.1 }}
+                      // initial={{ opacity: 0,}}
+                      // animate={{ opacity: 1, }}
+                      // transition={{ delay: index * 0.1 }}
                     >
                       {item.name}
                     </motion.button>
