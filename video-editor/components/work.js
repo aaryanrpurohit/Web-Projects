@@ -44,7 +44,7 @@ export default function VideosPortfolio() {
                 <iframe
                     src={`${video.url}?autoplay=1&mute=1&loop=1&playlist=${video.id}&controls=1&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0&playsinline=1`}
                     title={video.title}
-                    className="w-full h-full rounded-lg transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full rounded-lg transition-transform duration-500"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen

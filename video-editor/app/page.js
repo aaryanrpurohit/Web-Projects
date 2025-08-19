@@ -51,7 +51,7 @@ const Page = () => {
           <Contact_us />
         </section>
       </main>
-      <footer className="flex justify-end items-center m-2 mr-20 opacity-50">
+      <footer className="flex justify-end items-center mr-20 opacity-30">
         <div>
           Made by <span className="font-black opacity-100">Aaryan Rajpurohit</span>
         </div>
