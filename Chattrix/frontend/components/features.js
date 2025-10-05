@@ -10,30 +10,47 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3
+      staggerChildren: 0.15,
+      delayChildren: 0.2
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: {
+    opacity: 0,
+    scale: 0.5,
+    rotateY: -90,
+    z: -200
+  },
   visible: {
     opacity: 1,
-    y: 0,
+    scale: 1,
+    rotateY: 0,
+    z: 0,
     transition: {
-      duration: 0.8,
-      ease: [0.6, -0.05, 0.01, 0.99]
+      type: "spring",
+      duration: 1.2,
+      bounce: 0.4,
+      opacity: { duration: 0.6 }
     }
   }
 };
 
 const headingVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+    filter: "blur(10px)"
+  },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
 
@@ -85,11 +102,15 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
     style={{
       background: 'var(--color-surface, rgba(255, 255, 255, 0.05))',
       backdropFilter: 'blur(20px)',
-      border: '1px solid var(--color-border, rgba(255, 255, 255, 0.1))'
+      border: '1px solid var(--color-border, rgba(255, 255, 255, 0.1))',
+      transformStyle: 'preserve-3d',
+      perspective: 1000
     }}
     whileHover={{
       scale: 1.03,
       y: -8,
+      rotateX: 2,
+      rotateY: 2,
       transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
     }}
   >
@@ -301,9 +322,9 @@ export default function FeaturesSection() {
           <motion.p
             className="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed"
             style={{ opacity: 0.8 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 0.8, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 0.8, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           >
             Everything you need for seamless communication and connection.
           </motion.p>
@@ -327,8 +348,6 @@ export default function FeaturesSection() {
             />
           ))}
         </motion.div>
-
-        
 
       </div>
 
