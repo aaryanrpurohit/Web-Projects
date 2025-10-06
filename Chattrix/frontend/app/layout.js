@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import ThemeToggle from '@/components/toggletheme'
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
         {children}
-        <ThemeToggle/>
+
       </body>
     </html>
   );

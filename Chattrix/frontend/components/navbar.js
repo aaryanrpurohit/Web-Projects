@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ThemeToggle from '@/components/toggletheme2';
 
 export default function GlassmorphicNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,46 +57,50 @@ export default function GlassmorphicNavbar() {
               </span>
             </motion.div>
 
+            {/* Right Side - Theme Toggle and Join Button */}
+            <div className="flex items-center gap-4">
+              {/* Theme Toggle */}
+              <ThemeToggle />
 
-
-            {/* Join Now CTA Button */}
-            <motion.a
-              href="/join"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative px-8 py-3 rounded-full font-semibold text-base overflow-hidden group"
-              style={{
-                background: "linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(99, 102, 241, 0.9))",
-                color: "#ffffff",
-                boxShadow: "0 4px 20px rgba(108, 99, 255, 0.3)"
-              }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 6px 30px rgba(108, 99, 255, 0.5)"
-              }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Join Now
-
-              {/* Shimmer effect */}
-              <motion.div
-                className="absolute inset-0 -translate-x-full"
+              {/* Join Now CTA Button */}
+              <motion.a
+                href="/join"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative px-8 py-3 rounded-full font-semibold text-base overflow-hidden group"
                 style={{
-                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)"
+                  background: "linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(99, 102, 241, 0.9))",
+                  color: "#ffffff",
+                  boxShadow: "0 4px 20px rgba(108, 99, 255, 0.3)"
                 }}
-                animate={{
-                  translateX: ["-100%", "200%"]
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 6px 30px rgba(108, 99, 255, 0.5)"
                 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatDelay: 1
-                }}
-              />
-            </motion.a>
+                whileTap={{ scale: 0.98 }}
+              >
+                Join Now
+
+                {/* Shimmer effect */}
+                <motion.div
+                  className="absolute inset-0 -translate-x-full"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)"
+                  }}
+                  animate={{
+                    translateX: ["-100%", "200%"]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatDelay: 1
+                  }}
+                />
+              </motion.a>
+            </div>
           </div>
         </div>
       </div>

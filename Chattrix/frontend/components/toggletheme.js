@@ -19,7 +19,7 @@ export default function ThemeToggle() {
   }, [isDark]);
 
   return (
-    <div className="fixed left-4 bottom-4 z-50">
+    <div className="z-50">
       <label className="switch">
         <input
           type="checkbox"
